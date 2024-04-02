@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>About | QUICKPRO</title>
+    <link rel="stylesheet" href="../static/appMarketplace/css/style.css" type='text/css'>
+  </head>
+
+
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <span class="highlight"><a href="/"><h1>QUICKPRO</h1></a></span>
+      </div>
+      <nav>
+        {% if name.is_authenticated and emp_user == True and free_user == False %}
+          <ul>
+            <!-- <li><a href="{% url 'scraper:aroundtheweb' %}">Around The Web</a></li> -->
+            <li><a href="{% url 'employee:add_job' %}">Post a Job</a></li>
+            <li><a href="{% url 'employee:profile' name.id %}">{{ name.username }}</a></li>
+            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+          </ul>
+        {% elif name.is_authenticated and free_user == True and emp_user == False %}
+          <ul>
+            <!-- <li><a href="{% url 'scraper:aroundtheweb' %}">Around The Web</a></li> -->
+            <li><a href="{% url 'freelancer:f_home' %}">Browse Jobs</a></li>
+            <li><a href="{% url 'freelancer:profile' name.id %}">{{ name.username }}</a></li>
+            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+          </ul>
+        {% else %}
+          <ul>
+            <!-- <li><a href="{% url 'scraper:aroundtheweb' %}">Around The Web</a></li> -->
+            <li><a href="{% url 'accounts:e_reg' %}">Hire Freelancer</a></li>
+            <li><a href="{% url 'accounts:f_reg' %}">Become A Freelancer</a></li>
+            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+          </ul>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <section id="aboutshowcase">
+    <div class="container">
+      <h1>About Us</h1>
+      <p>Creating a World Of Solutions</p>
+    </div>
+  </section>
+
+
+  <section id="newsletter">
+    <div class="container">
+      <h1>Subscribe To Our Newsletter</h1>
+      <form>
+        <input type="email" placeholder="Enter Email...">
+        <button type="submit" class="button_1">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+
+  <section id="main">
+    <div class="container">
+      <article id="main-col col-sm-12">
+        <p>
+          <h3><b>Our story</b></h3>
+
+          The QUICKPRO story began over a decade ago, when we noticed we had a lot of work and no easy access to experts. 
+
+          <h3><b>A new way of working is born</b></h3>
+
+          In response, we created a new web-based platform that brought visibility and trust to remote work. It was so successful we realized other businesses would also benefit from reliable access to a larger pool of quality talent, while workers would enjoy freedom and flexibility to find jobs online. We, therefore, saw it was fit to allow others access to this resource..
+
+          Fast-forward to today, the platform has led to the successful fulfillment of thousands of tasks that required professional prowess. Hence QUICKPRO — the world’s leading freelancing website. With thousands of jobs posted annually on QUICKPRO, freelancers are earning more than $1.5 Million via the site each year and providing companies with over 3,500 skills.
+
+          <h3><b>A world of opportunities</b></h3>
+
+          Through QUICKPRO individuals and businesses get more done, connecting with freelancers to work on projects that cut accross technology, business, pilosophy, literature, among others. Our pool of experts keep growing and widening.
+          <h3><b>QUICKPRO’s vision</b></h3>
+
+          To connect businesses and individuals with great talent and experts to work without limits.
+        </p>
+      </article>
+
+      <aside id="sidebar">
+        <!-- <div class="dark">
+          <h3>Our Online Economy</h3>
+          <p>
+            The video below illustrates the Freelancer online economy. The pink lines indicate where projects are being posted by employers, and the blue lines indicate where the projects are being performed by freelancers. Thicker lines indicate a higher dollar volume of work. White dots indicate the location of Freelancer's users.
+          </p>
+        </div> -->
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <a  style="text-decoration-line: none; color:white;" href="{% url 'appMarketplace:index' %}">Home</a> - <a style="text-decoration-line: none; color:white;" href="{% url 'appMarketplace:contact_us' %}">Contact Us</a>
+    <p>QUICKPRO.com, Copyright &copy; 2023-2024</p>
+  </footer>
+
+</body>
+
+</html>

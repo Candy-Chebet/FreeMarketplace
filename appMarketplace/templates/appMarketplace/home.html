@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>QUICKPRO - Hire Experts For Your Tasks</title>
+    <link rel="stylesheet" href="static/appMarketplace/css/style.css" type='text/css'>
+
+  </head>
+
+
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <span class="highlight"><a href="/"><h1>QUICKPRO</h1></a></span>
+      </div>
+      <nav>
+        {% if name.is_authenticated and emp_user == True and free_user == False %}
+          <ul>
+            
+            <li><a href="{% url 'employee:add_job' %}">Post a Job</a></li>
+            <li><a href="{% url 'employee:profile' name.id %}">{{ name.username }}</a></li>
+            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+          </ul>
+        {% elif name.is_authenticated and free_user == True and emp_user == False %}
+          <ul>
+            <li><a href="{% url 'freelancer:f_home' %}">Browse Jobs</a></li>
+            <li><a href="{% url 'freelancer:profile' name.id %}">{{ name.username }}</a></li>
+            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+          </ul>
+        {% else %}
+          <ul>
+            <li><a href="{% url 'accounts:e_reg' %}">Hire</a></li>
+            <li><a href="{% url 'accounts:f_reg' %}">Get Work</a></li>
+            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+          </ul>
+        {% endif %}
+      </nav>
+    </div>
+  </header>
+
+  <section id="showcase">
+    <style>
+      #showcase{
+        background: url("static/appMarketplace/img/showcase.jpg") no-repeat 0 -400px;
+      }
+    </style>
+    <div class="container">
+      <h1>Get More Done With professionals who are meticulous and quick!</h1>
+      <p>Hundreds of small businesses use our talents to turn their ideas into reality.</p>
+    </div>
+  </section>
+
+  <section id="newsletter">
+    <div class="container">
+      <h1>Subscribe To Our Newsletter</h1>
+      <form>
+        <input type="email" placeholder="Enter Email...">
+        <button type="submit" class="button_1">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+
+  <section id="boxes">
+    <div class="container">
+      <div class="box">
+        <img src="static/appMarketplace/img/coding.png">
+        <h3>Programming</h3>
+        <p>Catering to your various programming needs</p>
+      </div>
+      <div class="box">
+        <img src="static/appMarketplace/img/morality.png">
+        <h3>Research</h3>
+        <p>Literature, science, business among others.</p>
+      </div>
+      <div class="box">
+        <img src="static/appMarketplace/img/logo_brush.png">
+        <h3>Graphics Design</h3>
+        <p>Get help with creating Designs.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="foot">
+    <a  style="text-decoration-line: none; color:white;" href="{% url 'appMarketplace:about' %}">About Us</a> - <a style="text-decoration-line: none; color:white;" href="{% url 'appMarketplace:contact_us' %}">Contact Us</a>
+    <p>QUICKPRO.com, Copyright &copy; 2023-2024</p>
+  </footer>
+
+</body>
+
+</html>

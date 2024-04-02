@@ -1,0 +1,43 @@
+{% include "checkoutNavBar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+</head>
+<body>
+    <h1>Payment failed for job: {{completedWork.title}} </h1>
+    <div class="job-container">
+        <div class = "completedWork">
+            <p>{{completedWork.title}}</p>
+            <p>Amount: {{completedWork.budget}}</p>
+            <p>Description: {{completedWork.short_text}}</p>
+        </div>
+    </div>
+
+    <style>
+        body {
+            padding:10px;
+            box-sizing: border-box;
+        }
+
+        .job-container {
+            display:flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100vh;
+        }
+
+        button{
+            padding:10px;
+            border-radius: 5px;
+            background-color: dodgerblue;
+            color: white;
+            border:none;
+        }
+
+
+    </style>
+</body>
+</html>

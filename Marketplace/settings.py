@@ -188,6 +188,6 @@ JAZZMIN_SETTINGS = {
     "copyright": "QUICKPRO.com.",
 }
 
-PAYPAL_RECEIVER_EMAIL = 'candywritingassignments@gmail.com'
+PAYPAL_RECEIVER_EMAIL = #
 PAYPAL_TEST = True
 # PAYPAL_BUY_BUTTON_IMAE = 'https://res.cloudinary.com/the-proton-guy/image/upload/v1685882223/paypal-PhotoRoom_v9pay7.png'

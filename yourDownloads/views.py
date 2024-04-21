@@ -41,8 +41,8 @@ def Checkout(request, completedWork_id=None):
         'invoice': uuid.uuid4(),
         'currency_code': 'USD',
         'notify_url': f"http://{host}{reverse('paypal-ipn')}",
-        'return_url': f"http://{host}{reverse('yourDownloads:payment-success', kwargs={'completedWork_id': completedWork.completedWork_id})}",
-        # 'cancel_url': f"http://{host}{reverse('yourDownloads:payment-failed', kwargs={'completedWork_id': completedWork.completedWork_id})}",
+        'return_url': f"http://{host}{reverse('yourDownloads:payment-success', kwargs={'completedWork_id': completedWork_id})}",
+        'cancel_url': f"http://{host}{reverse('yourDownloads:payment-failed', kwargs={'completedWork_id': completedWork_id})}",
     }
 
     paypal_payment = PayPalPaymentsForm(initial=paypal_checkout)
@@ -53,7 +53,7 @@ def Checkout(request, completedWork_id=None):
 
 
 
-def PaymentSuccessful(request, completedWork_id):
+def PaymentSuccessful(request, completedWork_id=None):
     try:
         work = completedWork.objects.get(completedWork_id=completedWork_id)
         return render(request, 'paymentsuccess.html', {'work': work})

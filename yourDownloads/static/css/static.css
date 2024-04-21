@@ -1,0 +1,159 @@
+body {
+	background-color: #0e24ba;
+	color: white;
+	/* #010940;  */
+}
+
+/*Table paination styling*/
+.paging-nav {
+	text-align: right;
+	padding-top: 2px;
+	font-size: 20px;
+	padding-bottom: 10px;
+  }
+  
+  .paging-nav a {
+	margin: auto 1px;
+	text-decoration: none;
+	display: inline-block;
+	padding: 1px 7px;
+	background: #187ed5;
+	color: white;
+	border-radius: 100px;
+  }
+  
+  .paging-nav .selected-page {
+	background: #2c03f9;
+	font-weight: bold;
+  }
+  /* End Table paination styling*/
+
+.myClass{
+	text-align: center;
+	border: width 1px;
+	border-style:solid;
+}
+
+.myForm{
+	margin-top:300;
+	margin:30px;
+	/* text: white; */
+}
+
+/*Align the title to the center of the page*/
+.table{
+	font-size: 13px;
+	text-align: center;
+	width: 95%;
+	margin: auto;
+	text-align: center;
+}
+
+/*Make alternating colors for the table rows*/
+.table tr:nth-child(odd){
+	background: #B8CAE4
+}
+
+.table tr:nth-child(even){
+	background: #dae5f4
+}
+
+.success{
+	list-style: none;
+	background-color: #089118;
+	color: white;
+	box-shadow: 12px 12px 12px #e61c66;
+	text-align: center;
+}
+
+.main-container{
+	width:85%;
+	margin:auto;
+	color: white;
+}
+
+.myForm form{
+	box-shadow: 10px 10px 10px;
+	box-shadow: 12px 12px 12px #c3055b;
+	border: 1px solid #0d66f4;
+	padding: 10px;
+	padding-bottom: 2px;
+	color: white;
+}
+
+.recent{
+	color:white;
+	font-weight: bold;
+	font-size:large;
+	
+}
+.my-0{
+	color:rgb(150, 17, 17);
+	font-weight: bold;
+	font-size:large;	
+}
+
+
+.title {
+	text-align:left;
+	margin-left: 30;
+	margin-top: 80;
+    font-weight: bold;
+	font-size:xx-large;
+}
+
+.menu-bar{
+    background-color: #102039;
+    color: rgb(215, 4, 4);
+    display: flex;
+	justify-content:right; /* Distribute items evenly along the main axis */
+    align-items: center; /* Center items vertically within the container */
+
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top:0;
+    z-index: 3000;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.menu-bar:hover{
+    left: 0px;
+	background-color: #c3055b; /* Change the background color on hover */
+    color: black; /* Change the text color on hover */
+    -webkit-transition: all 0.2s ease;
+     -moz-transition: all 0.2s ease;
+       -o-transition: all 0.2s ease;
+      -ms-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+.start{
+	color:white;
+	text-decoration: none;
+    padding: 5px 10px; /* Adjust padding as needed */
+    border-radius: 5px; /* Optional: Add rounded corners to each item */
+
+}
+
+/*Scroll to top Styling*/
+.scrollToTop{
+	width:100px;
+	padding:10px;
+	text-align:center;
+	font-weight: bold;
+	text-decoration: none;
+	position:fixed;
+	bottom:10px;
+	color:white;
+	right:20px;
+	display:none;
+}
+.scrollToTop:hover{
+	text-decoration:none;
+	color:rgb(48, 9, 247);
+	opacity: 1;
+	background-color: white;
+}
+/* End Scroll to top Styling*/

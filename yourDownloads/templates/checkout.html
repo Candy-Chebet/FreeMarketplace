@@ -1,6 +1,6 @@
 {% load static %}
 {% load crispy_forms_tags %}
-<!-- {% include "checkoutNavBar.html" %} -->
+{% include "checkoutNavBar.html" %}
 
 
 <head>
@@ -29,13 +29,13 @@
             {{ paypal.render }}
 
             <!-- Add a link to the payment success page -->
-            <a href="{% url 'payment-success' completedWork_id=work.id %}">Payment Success</a>
+            <!-- <a href="/checkout/payment-success">Payment Success</a> -->
         </div>
     </div>
 
     <style>
         body {
-            padding: 10px;
+            padding-top: 100px;
             box-sizing: border-box;
         }
 

@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>{% block title %}GETWORK{% endblock %}</title>
+    <title>{% block title %}QUICKPRO{% endblock %}</title>
 
 
     {% load static %}
@@ -22,11 +22,10 @@
       <header>
         <div class="container">
           <div id="branding">
-            <span class="highlight"><a href="/"><h1>GETWORK</h1></a></span>
+            <span class="highlight"><a href="/"><h1>Quickpro</h1></a></span>
           </div>
           <nav>
               <ul>
-                <li><a href="{% url 'employee:e_home' %}">Browse Jobs</a></li>
                 <li><a href="{% url 'employee:add_job' %}">Post a Job</a></li>
                 <li><a href="{% url 'checkouts:checkout' %}">Checkout</a></li>
                 <li><a href="{% url 'employee:profile' name.id %}">{{ name.username }}</a></li>

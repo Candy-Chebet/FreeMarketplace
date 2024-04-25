@@ -35,30 +35,32 @@
     </div>
   </div>
 
-  <!--tab 1 : projects -->
+
+  <!--tab 2: Projects -->
   <div id="projects" class="tab-pane fade">
     <div class="box-border">
       <section id="main">
         <article id="main-col">
           <ul>
-            {% for job in all_jobs %}
-              {% if profile == job.user %}
-                <div class="card">
-                  <div class="card-body">
-                    <p style="float:right; margin:10px;"><b>Budget: </b>{{ job.budget }}</p>
-                    <p><h2 class="card-title"><a href="{% url 'details:job_details' job.id %}">{{ job.title }}</a></h2> posted by: {{ job.user }}</p>
+            {% for job in user_jobs %}
+              <div class="card">
+                <div class="card-body">
+                  <p style="float:right; margin:10px;"><b>Budget:</b> {{ job.budget }}</p>
+                  <h2 class="card-title">
+                    <a href="{% url 'details:job_details' job.id %}">{{ job.title }}</a>
+                  </h2>
+                  <p>Posted by: {{ job.user }}</p>
 
-                    {% if name.is_authenticated and name == job.user %}
-                      <a href="{% url 'details:edit_job' job.id %}" class="btn btn-primary" style="margin-bottom:5px;">Edit Job</a>
-                    {% endif %}
+                  {% if name == job.user %}
+                    <a href="{% url 'details:edit_job' job.id %}" class="btn btn-primary">Edit Job</a>
+                  {% endif %}
 
-                    <p><b>Job Duration:</b>  {{ job.time }}<p>
-                    <p><b>Description:</b> {{ job.short_text }}</p>
-                    <p style="margin-top:5px;"><b>Skills:</b> {{ job.skill }}</p>
-                    <p><b>Posted On:</b>  {{ job.created_date }}<p>
-                  </div>
+                  <p><b>Job Duration:</b> {{ job.time }}</p>
+                  <p><b>Description:</b> {{ job.short_text }}</p>
+                  <p style="margin-top:5px;"><b>Skills:</b> {{ job.skill }}</p>
+                  <p><b>Posted On:</b> {{ job.created_date }}</p>
                 </div>
-              {% endif %}
+              </div>
             {% endfor %}
           </ul>
         </article>
@@ -67,6 +69,5 @@
   </div>
 
 </div>
-
 
 {% endblock %}

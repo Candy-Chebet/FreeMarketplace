@@ -113,60 +113,32 @@ def add_job(request):
 
 
 
+# View: profile
 @login_required
 def profile(request, user_id):
     profile = get_object_or_404(User, pk=user_id)
-
     profile_emp = ProfileEmp.objects.get(user=profile)
 
     user = User.objects.all()
-
     name = request.user
 
-    free_all = ProfileFree.objects.all()
-    emp_all = ProfileEmp.objects.all()
+    # Fetch all jobs posted by the current user
+    user_jobs = This_Job.objects.filter(user=name)
 
-    for emp in emp_all:
-        if name == emp.user:
-            emp_user = True
-            break
-        else:
-            emp_user = False
-
-    for free in free_all:
-        if name == free.user:
-            free_user = True
-            break
-        else:
-            free_user = False
-
-    # all_messages = Message.objects.all()
-    # count_message_e = 0
-
-    # for message in all_messages:
-    #     if name == message.post_user and message.viewed == False:
-    #         count_message_e = count_message_e + 1
-
-
-
-    all_jobs = This_Job.objects.all()
-    all_bids = Bid.objects.all()
+    # Get whether the current user is an employer or a freelancer
+    emp_user = ProfileEmp.objects.filter(user=name).exists()
+    free_user = ProfileFree.objects.filter(user=name).exists()
 
     context = {
         'name': name,
         'user': user,
-        'free_user': free_user,
-        'emp_user': emp_user,
-        'emp_all': emp_all,
         'profile': profile,
         'profile_emp': profile_emp,
-        'all_jobs': all_jobs,
-        # 'all_messages': all_messages,
-        # 'count_message_e': count_message_e,
-
+        'user_jobs': user_jobs,
+        'emp_user': emp_user,
+        'free_user': free_user,
     }
     return render(request, 'employee/profile.html', context)
-
 
 @login_required
 def edit_profile(request, user_id):

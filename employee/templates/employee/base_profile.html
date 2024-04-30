@@ -28,6 +28,9 @@
                 <li><a href="{% url 'employee:add_job' %}">Post a Job</a></li>
                 <li><a href="{% url 'checkouts:checkout' %}">Checkout</a></li>
                 <li><a href="{% url 'employee:profile' name.id %}">{{ name.username }}</a></li>
+                <li><a href="https://wa.me/#?text=Hi,%20I%20need%20help%20with%20a%20task." class="WhatsappChat">
+                  <img src="{% static '/employee/images/whatsapp.png' %}" alt="whatsapp" width="30px">
+                </a></li>
                 <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
               </ul>
             {% elif name.is_authenticated and free_user == True and emp_user == False %}
